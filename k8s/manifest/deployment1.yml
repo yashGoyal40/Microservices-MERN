@@ -17,6 +17,12 @@ spec:
       containers:
       - name: service1
         image: yashgoyal04/svc1:latest
+        env:
+          - name: DB_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: my-config-map
+                key: db-port
         ports:
         - containerPort: 80
       
